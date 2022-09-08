@@ -1,0 +1,2 @@
+https://nodejs.org/api/buffer.html
+https://nodejs.org/en/knowledge/advanced/buffers/how-to-use-buffers/

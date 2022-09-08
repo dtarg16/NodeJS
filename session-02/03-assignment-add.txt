@@ -1,0 +1,9 @@
+'add':function(args){
+	// assignment
+	// case 1)  add 4 5 6 g 6 sdd 6 
+	// case 1 result 27 
+	// case 2)  add 4 5 6 g 4  5 5 5 5 6  6 
+	// case 2)  add 4  e e // 4
+	// case 3)  add  // 0
+	//console.log("sum is "+(parseInt(args[0]) +parseInt(args[1])));
+}
