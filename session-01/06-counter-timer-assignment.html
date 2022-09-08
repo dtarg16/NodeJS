@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> hello html</title>
+    </head>
+    <body>
+        <script>
+            print = function(msg){
+                console.log(msg)
+            }
+            secoundCounter= function(caller,count){
+                for(var i=0; i<count; i++){
+                    // sleep of 1 seond
+                    // Internet help is OK
+                    // Don't use async await
+                    // at same time B1 and B2 should work
+                    // use var 
+                    // Can we implement this without setTimeout and setInterval?
+                    print(caller +" "+ i +" seconds over");
+                }
+            }
+        </script>
+        <form>
+            <input type="button" value="B1" onclick="secoundCounter('B1',20)"/><br/><br/>
+            <input type="button" value="B2" onclick="secoundCounter('B2',30)" /><br/><br/>
+        </form>
+
+    </body>
+</html>

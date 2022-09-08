@@ -1,0 +1,19 @@
+'add':function(args){
+	//add 3 4 5 5 6
+	 // 23
+	//add 3 4 5 5 6 uiu u iu u uu 6
+	// 29  
+	console.log("sum is "+(parseInt(args[0]) +parseInt(args[1])));
+}	
+
+
+/// solution
+	'add':function(args){
+	var sum = 0;
+	for (var i = 0; i < args.length; i++) {
+		if( !isNaN(parseInt(args[i]))){
+			sum = sum + parseInt(args[i]);
+		}
+		}
+		console.log("sum is "+sum);
+	}

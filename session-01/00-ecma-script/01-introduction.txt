@@ -1,0 +1,37 @@
+Ecma Script https://en.wikipedia.org/wiki/ECMAScript
+ES6: http://es6-features.org/#Constants
+
+1. const 
+2. let ,  var
+3. arrow function
+4. object reference and garbage collection
+
+
+scope:
+
+global ==>  example:  d=90;
+var | private ==>  inside function | var has functional scope
+let | private ==> scope is {}
+const | not to change
+
+testFunction = () =>{ 
+var currentx = 900; 
+
+if(true){
+	let g=90;
+	var p=900;
+	console.log("g is "+g);
+	console.log("p is  "+p);
+}
+	console.log("p is outside "+p);
+	console.log("g is outside "+g);
+}
+
+
+
+Babel:
+https://babeljs.io/setup#installation
+
+Babel :https://babeljs.io/repl
+A transcompiler from 
+EcmaScript to JavaScript

@@ -1,0 +1,27 @@
+
+Why node? Why JavaScript ?
+1) one language 
+2) flexibility ??
+3) event driven | OK
+4) open source | OK
+5) support 
+6) fast ??? 
+7) Async 
+8) SCRIPT
+=========
+
+Java | C++ | Reason 
+-------
+1950 |  assembly language 
+1970 | C language 
+1983 | C++ (OOPS)
+1995 | Java OOPS + PI
+2010 | script (python,javascript)
+
+
+==========
+Office | 1000+ people 
+==========
+lunch break 
+1) prepare your lunch yourself in office 
+2) order food on Mobile phone 

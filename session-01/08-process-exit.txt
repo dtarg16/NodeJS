@@ -1,0 +1,32 @@
+console.log("Hello world 123");
+
+// 3-4 lines
+// java is OOPS
+// JS is OOPS + event oriented also
+
+
+// subscription pattern 
+// ToI
+process.stdin.on(
+	'data', 
+	function (input) {
+	console.log("Hello:1: "+ input.toString());
+});
+
+process.stdin.on('data', 
+	function (input) { //funct 2
+	console.log("Hello:2: "+ input.toString());
+});
+
+process.stdin.on('data', 
+	function (input) { //funct 2
+		if(input.toString().startsWith("exit")){
+			process.exit(0);
+		}
+});
+
+// chat 
+
+// client / server Java create multple  
+
+// game   client <==> server <==> client 

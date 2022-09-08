@@ -1,0 +1,12 @@
+// call back | event oriented and Node 
+About  whatsApp chat 1000000
+Apache =>
+tomcat => new thread 
+client and server
+
+client <==> server <==> client
+// performace 
+// Real World <=> 
+
+network programming based on event ??
+Ryan , V8 engine , NodeJS

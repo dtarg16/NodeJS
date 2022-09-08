@@ -1,0 +1,18 @@
+-------
+mkdir sampleMath
+npm init 
+// just do enter 
+It should create file package.json
+-------
+
+// main.js
+var mathLib = require('./mathLib'); //fs is module
+
+console.log("sum of 5 + 6 "+mathLib.sum(5,6))
+console.log("mul of 5 * 6 "+mathLib.mul(5,6))
+
+//mathLib.js
+const sum = function(a,b){return a+b;}
+const mul = function(a,b){return a*b;}
+
+module.exports = {sum,mul}; 
