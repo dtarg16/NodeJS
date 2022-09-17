@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <script>
+        const doLogin= async ()=>{
+            let username = document.getElementById('username').value;
+            let password = document.getElementById('password').value;
+            const data = {username,password};
+            
+            const response = await fetch('/users/login', {
+                method: 'POST', // or 'PUT'
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
+                })
+                .then((response) => response.json())
+                .then((data) => {
+                    //console.log('Success:', data);
+                    return data;
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                });
+            
+            if(response.result == "success"){
+                location = "/dashboard"
+            }else{
+                alert("Username or password is incorrect.");
+            }
+        }
+    </script>
+    <h1><%= title %></h1>
+        <input id="username" placeholder="Username" /> <br/><br/>
+        <input id="password" placeholder="Password" type="password" /> <br/><br/>
+        <input type="button" onclick="doLogin()" value="Submit"/>
+  </body>
+</html>

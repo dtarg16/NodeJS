@@ -1,0 +1,12 @@
+
+By 14 Sep (before Session 4)
+1) Product CRUD Create,Add, List and Delete should Work
+
+{id,name,company,code,date,city,country}
+
+Now implement Product CRUD  
+List Product
+Add Product
+Delete Product 
+
+Add Pages and REST API

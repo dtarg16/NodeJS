@@ -1,0 +1,21 @@
+
+http://localhost:3000/person/1
+http://localhost:3000/api/person/1
+
+server: localhost (IP)
+port : 3000 (80)
+path : /api/person/1
+
+methods
+
+making a REST API for employee
+
+GET http://localhost:3000/api/employee (for fetching all employees)
+GET http://localhost:3000/api/employee/3  (by Id)
+GET http://localhost:3000/api/employee/name/vivek  (by name)
+GET http://localhost:3000/api/employee/email/vivek@abc.com  (by email)
+
+POST http://localhost:3000/api/employee (addition of employee)
+PUT http://localhost:3000/api/employee (update of employee)
+DELETE http://localhost:3000/api/employee (update of employee)
+PATCH http://localhost:3000/api/employee (adding more info of employee)

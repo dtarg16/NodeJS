@@ -1,0 +1,10 @@
+
+npm install express-generator -g
+
+cd workspace-node
+express -e customer-node-app
+
+cd customer-node-app
+npm install 
+nodemon
+ 
