@@ -1,0 +1,6 @@
+Download MySQL setup for windows
+http://training.pyther.com/packages
+
+uzip and install it
+
+It will ask for root password : 123456 (smartant)

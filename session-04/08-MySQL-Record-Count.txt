@@ -1,0 +1,62 @@
+
+// add customer-mysql.js
+1 //create  service/CustomerMysql.js  // callback
+---------
+var mysql = require('mysql');
+var pool  = mysql.createPool({
+  connectionLimit : 20,
+  host            : 'localhost',
+  user            : 'root',
+  password        : 'smartant',
+  database        : 'nodejs',
+  port: 3306
+});
+ 
+ const getCustomerSql = function(callback){
+	pool.query('SELECT * from customer', function (error, results, fields) {
+  	if (error) {
+  		callback([]);
+  		throw error;
+  	}else{
+  		callback(results);
+  	}
+	});
+}
+module.exports = {getCustomerSql};
+--------
+
+2. change in index.js 
+-----
+.
+.
+const {getCustomerSql} = require('../services/customer-mysql')
+.
+.
+router.get('/dashboard', function(req, res, next) {
+  let callback = (result) =>{
+    res.render('dashboard', { title: 'Dashboard',customers:result });
+  }
+  getCustomerSql(callback);
+});
+-------
+
+3. dashboard.ejs
+--------
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <button onclick="location='/dashboard'"> Dashboard</button>&nbsp;|&nbsp; 
+    <button onclick="location='/customer'"> Customer</button>&nbsp;|&nbsp; 
+    <button onclick="location='/product'"> Product</button>&nbsp;|&nbsp; 
+    <button onclick="location='/about'"> About</button>&nbsp;|&nbsp; 
+    <button onclick="location='/login'"> Logout</button>&nbsp;|&nbsp; 
+    <hr/>
+
+    <p> Total records are <%= customers.length %> </p>
+  </body>
+</html>
