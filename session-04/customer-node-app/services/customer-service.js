@@ -4,6 +4,7 @@ var customers = [
   ];
 
 const getCustomer = ()=>(customers);
+
 const addCustomer = (customer)=>{
     customer.id = Date.now();
     customers.push(customer);
@@ -27,4 +28,4 @@ const deleteCustomer = (customer)=>{
 };
 
 
-module.exports = {getCustomer,addCustomer,updateCustomer,deleteCustomer,getCustomerById};
+module.exports = {getCustomer, addCustomer, updateCustomer, deleteCustomer, getCustomerById};
