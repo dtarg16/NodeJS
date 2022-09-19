@@ -17,3 +17,4 @@ connection.query('SELECT * from customer', function (error, results, fields) {
 });
  
 connection.end(); 
+

@@ -1,0 +1,13 @@
+
+Download and setup mongo DB on your machine:
+https://training.pyther.com/packages/
+
+
+//run server
+mongod -dbpath /Users/vivek/data/db &
+mongod.exe -dbpath C:/data/db
+
+// run client
+mongo
+
+

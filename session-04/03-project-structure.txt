@@ -1,0 +1,12 @@
+customer-app-node
+express --help
+
+1) bin/www (config, port)
+2) app.js express , 
+3) public folder (all public files http://localhost:3000/sample.html)
+4) views  / View 
+5) services / model (Model)
+6) routers (Controller)  
+7) packages.json 
+
+MVC 

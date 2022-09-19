@@ -3,6 +3,8 @@
   <head>
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" ></script>
+  
   </head>
   <body>
     <h1><%= title %></h1>
@@ -38,8 +40,27 @@
                 location = "/customer"
             }
         }
+        const doSearch = function(){
+        var searchText = document.getElementById("searchText").value;
+        var selectField = document.getElementById("select").value;
+        if(searchText == ""){
+          location = "/customer";
+        }else{
+          location = "/customer/search/"+selectField+"/"+searchText;
+        }
+      }
     </script>
-    <button onclick="location='/customer/add'">Add</button><br/><br/>
+    <button onclick="location='/customer/add'">Add</button> | 
+    <input id="searchText" type="text" name="" placeholder="search text"> 
+    <select id="select">
+      <option value="name">Name</option>
+      <option value="email">Email</option>
+      <option value="address">Address</option>
+      <option value="phone">Phone</option>
+    </select>
+    <button onclick="doSearch()">Search</button><br/><br/>
+
+
     <div class="page-data">
         <div class="data-table">
            <table border="1" cellpadding="7" cellspacing="7">
@@ -74,3 +95,4 @@
 
   </body>
 </html>
+

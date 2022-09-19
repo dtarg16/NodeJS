@@ -60,3 +60,4 @@ router.get('/dashboard', function(req, res, next) {
     <p> Total records are <%= customers.length %> </p>
   </body>
 </html>
+

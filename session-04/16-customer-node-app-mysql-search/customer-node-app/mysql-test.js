@@ -1,8 +1,26 @@
-create schema nodejs;
+var mysql      = require('mysql');
+var connection = mysql.createConnection({
+  host     : 'localhost',
+  user     : 'root',
+  password : 'smartant',
+  database : 'nodejs'
+});
+ 
+connection.connect();
+ 
+connection.query('SELECT 1 + 1 AS solution', function (error, results, fields) {
+  if (error) throw error;
+  console.log('The solution is: ', results[0].solution);
+});
+ 
+connection.end();
 
-use nodejs;
+/*
+ mysql
+ >create database nodejs;
+> use nodejs;
 
-CREATE TABLE IF NOT EXISTS `customer` (
+ CREATE TABLE IF NOT EXISTS `customer` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(200) NOT NULL,
   `address` text NOT NULL,
@@ -23,3 +41,6 @@ INSERT INTO `customer` (`id`, `name`, `address`, `email`, `phone`) VALUES
 (6, 'Memet', 'Blok cepu no 14. Bandung', 'memet@ongkek.com', '038372636232'),
 (9, 'Agung', 'Jl st Petersburg no 34. Russia', 'agung@yahoo.com', '038373273262'),
 (10, 'Jhon Taylor', 'St paris A . Block 43. paris', 'jtaylor@yahoo.com', '039223232323');
+
+*/
+

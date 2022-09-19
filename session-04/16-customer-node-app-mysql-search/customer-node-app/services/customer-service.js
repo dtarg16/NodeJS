@@ -1,10 +1,9 @@
 var customers = [
-    {id:1,name:'Vivek',email:'vivek@abcd.com',phone:'1234567899', address:'India'},
-    {id:2,name:'Rama',email:'rama@abcd.com',phone:'wwwww', address:'Asia'},
+    {id:1,name:'Vivek',email:'vivek@abcd.com',phone:'1234567899', address:'India',city:'Ahmedabad' },
+    {id:2,name:'Rama',email:'rama@abcd.com',phone:'wwwww', address:'Asia',city:'Hongkong'},
   ];
 
 const getCustomer = ()=>(customers);
-
 const addCustomer = (customer)=>{
     customer.id = Date.now();
     customers.push(customer);
@@ -28,4 +27,4 @@ const deleteCustomer = (customer)=>{
 };
 
 
-module.exports = {getCustomer, addCustomer, updateCustomer, deleteCustomer, getCustomerById};
+module.exports = {getCustomer,addCustomer,updateCustomer,deleteCustomer,getCustomerById};

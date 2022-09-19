@@ -88,4 +88,25 @@ const getCustomerById = function(id) {
   });
 };
 
-module.exports = {getCustomer,addCustomer,updateCustomer,deleteCustomer,getCustomerById};
+const getCustomersBySearch = function(field, searchText) {
+    var recordList = [];
+    var sql = "SELECT * FROM customer where "+field+" like '%"+searchText+"%'";
+    console.log("sql:"+sql);
+    return new Promise((resolve, reject) => {
+    pool.getConnection(function(err, connection) {
+      if(err) { console.log(err); resolve({}); return; }
+      // make the query
+      connection.query(sql, function(err, results) {
+        connection.release();
+        if(err) { console.log(err); resolve({}); return; }
+        if(results.length == 0){
+          resolve(recordList);
+        }else{
+          resolve(results);
+        }
+      });
+    });
+  });
+  };
+
+module.exports = {getCustomersBySearch, getCustomer,addCustomer,updateCustomer,deleteCustomer,getCustomerById};

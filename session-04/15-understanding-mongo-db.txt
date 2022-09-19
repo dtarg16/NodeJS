@@ -1,0 +1,43 @@
+MongoDB
+https://www.mongodb.com/download-center?initial=true#community
+
+
+//create database 
+use nodejs;
+
+//delete database
+>db.dropDatabase()
+
+//create collection (table)
+>db.createCollection('user');
+
+//insert document (row)
+>db.user.insert({"name" : "Vivek","email": "vivek@gmail.com"});
+
+//delete collection (table)
+>db.user.drop();
+
+//insert
+>db.user.insert({
+_id: ObjectId("5bbf2be404c7fa3b401a6c78"),
+title: 'MongoDB Overview',
+description: 'MongoDB is no sql database',
+by: 'nodejs point',
+url: 'http://training.pyther.com',
+tags: ['mongodb', 'database', 'NoSQL'],
+likes: 100
+})
+
+//search / find
+>db.user.find()
+
+//search with name
+db.user.find({"name" : "Vivek"});
+
+//update
+db.user.update({"name" : "Vivek"}, {"name" : "Vivek Singhwal"});
+
+//delete 
+>db.user.remove({title: 'MongoDB Overview'})
+
+

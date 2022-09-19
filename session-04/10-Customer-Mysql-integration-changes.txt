@@ -1,0 +1,167 @@
+// routes/customer.js
+var express = require('express');
+var router = express.Router();
+var {getCustomer,addCustomer, deleteCustomer, getCustomerById, updateCustomer} = require('../service/CustomerMysql');
+
+router.get('/', async (req, res, next) => {
+  let data = await getCustomer();
+  res.send(data);
+});
+
+router.get('/:id', async(req, res, next) => {
+  let record = await getCustomerById(req.params.id);
+  res.send(record);
+});
+router.post('/', async (req, res) => {
+	console.log("customerAPI::",req.body);
+	//req.body.id = Date.now();
+	await addCustomer(req.body);
+	res.send({result:"ok", msg:"customer added ok"});
+});
+
+router.delete('/', async (req, res) => {
+  let id = req.body.id;
+  await deleteCustomer({id});
+  res.send({msg:'record deleted ok',result:'success'});
+});
+
+router.put('/', async (req, res) => {
+  let record = req.body;
+  await updateCustomer(record);
+  res.send({msg:'record updated ok',result:'success'});
+});
+
+module.exports = router;
+
+// service/CustomerMysql.js
+// service/CustomerMysql.js  // callback
+var mysql = require('mysql');
+var pool  = mysql.createPool({
+  connectionLimit : 10,
+  host            : 'localhost',
+  user            : 'root',
+  password        : 'smartant',
+  database        : 'nodejs'
+});
+ 
+ const getCustomer = ()=> {
+    return new Promise((resolve, reject) => {
+        pool.query('SELECT * from customer', function (error, results, fields) {
+         if (error) {
+           resolve([]);
+           throw error;
+         }else{
+           resolve(results);
+         }
+       });
+   })
+}
+
+
+const addCustomer = function(customer) {
+    return new Promise((resolve, reject) => {
+     pool.getConnection(function(err, connection) {
+       if(err) { console.log(err); resolve({result:"fail"}); return; }
+         connection.query("INSERT INTO customer set ? ",customer, function(err, results) {
+         if(err){
+          console.log("Error Selecting : %s ",err );
+          resolve({result:"fail"});
+         }else{
+          resolve({result:"success"});
+        }
+        connection.release();
+     });
+   });
+  });
+};
+
+
+const updateCustomer = function(customer) {
+    return new Promise((resolve, reject) => {
+       pool.getConnection(function(err, connection) {
+     if(err) { console.log(err); resolve({result:"fail"}); return; }
+     connection.query("UPDATE customer set ? WHERE id = ? ",[customer,customer.id], function(err, results) {
+         if(err){
+          console.log("Error Selecting : %s ",err );
+          resolve({result:"fail"});
+         }else{
+          resolve({result:"ok"});
+        }
+     });
+   });
+  });
+};
+
+const deleteCustomer = function({id}) {
+    return new Promise((resolve, reject) => {
+       var sql = "delete FROM customer where id='"+id+"'";
+       console.log("sql:"+sql);
+       pool.getConnection(function(err, connection) {
+         if(err) { console.log(err); resolve({result:"ok"});}
+         // make the query
+         connection.query(sql, function(err, results) {
+           connection.release();
+           if(err) { console.log(err); resolve({result:"ok"}); }
+           resolve({result:"ok"}) ;
+         });
+       });
+  });
+};
+const getCustomerById = function(id) {
+    return new Promise((resolve, reject) => {
+    pool.query('SELECT * from customer where id='+id, function (error, results, fields) {
+    if (error) {
+      resolve({});
+      throw error;
+    }else{
+      if(results.length == 0){
+        callback({});
+      }else{
+        resolve(results[0]);
+      }
+    }
+  });
+  });
+};
+
+module.exports = {getCustomer,addCustomer,updateCustomer,deleteCustomer,getCustomerById};
+
+// routes/index.js
+var express = require('express');
+var router = express.Router();
+const {getCustomer, getCustomerById} = require('../service/CustomerMysql');
+
+/* GET home page. */
+router.get('/', function(req, res, next) {
+  res.render('index', { title: 'Express' });
+});
+
+router.get('/login', function(req, res, next) {
+  res.render('login', { title: 'Login' });
+});
+
+router.get('/home', function(req, res, next) {
+  console.log("path"+ req.url)
+  res.render('index', { title: 'Home', baseUrl:req.url });
+});
+
+router.get('/about', function(req, res, next) {
+  res.render('index', { title: 'About' });
+});
+
+router.get('/customer', async (req, res, next) => {
+  const data = await getCustomer();
+  res.render('customer', { title: 'Customer',data});
+});
+
+router.get('/customer/add', async(req, res, next) => {
+  res.render('customer-add', { title: 'Add Customer'});
+});
+
+router.get('/customer/edit/:id', async(req, res, next) =>  {
+  let customer = await getCustomerById(req.params.id);
+  res.render('customer-edit', { title: 'Update Customer', customer});
+});
+
+module.exports = router;
+
