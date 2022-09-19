@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <script>
+        const addCustomer= async ()=>{
+            let name = document.getElementById('name').value;
+            let email = document.getElementById('email').value;
+            let phone = document.getElementById('phone').value;
+            let address = document.getElementById('address').value;
+            const data = {name,email,phone,address};
+            const response = await fetch('/api/customer', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
+                })
+                .then((response) => response.json())
+                .then((data) => {
+                    //console.log('Success:', data);
+                    return data;
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                });
+            
+            if(response.result == "ok"){
+                location = "/customer"
+            }
+        }
+    </script>
+    <h1><%= title %></h1>
+        <input id="name" placeholder="Name" /> <br/><br/>
+        <input id="email" placeholder="Email" /> <br/><br/>
+        <input id="phone" placeholder="Phone" /> <br/><br/>
+        <input id="address" placeholder="Address" /> <br/><br/>
+        <input type="button" onclick="addCustomer()" value="Submit"/>
+  </body>
+</html>

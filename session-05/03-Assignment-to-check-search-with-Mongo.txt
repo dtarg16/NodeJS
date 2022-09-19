@@ -1,0 +1,1 @@
+Validate if getCustomersBySearch is Working in Mongo implementation

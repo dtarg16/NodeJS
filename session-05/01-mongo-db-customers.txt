@@ -1,0 +1,46 @@
+Step 1: Setup DB
+open mongo client
+------------
+>mongo
+
+use nodejs;
+
+db.createCollection('customers');
+
+db.customers.insert({
+_id: ObjectId("5bbf2be404c7fa3b401a6788"),
+name: 'Vivek Singhwal',
+email: 'vivek.singhwal@gmail.com',
+phone: '9724232340',
+address: 'India'
+});
+
+db.customers.find();
+
+
+
+Step 2: create file mongo-test.js
+--------
+var MongoClient = require('mongodb').MongoClient;
+
+MongoClient.connect('mongodb://localhost:27017',{useUnifiedTopology: true}, function (err, client) {
+  if (err) throw err
+
+  var db = client.db('nodejs')
+
+  db.collection('customers').find().toArray(function (err, result) {
+    if (err) throw err;
+    console.log(result)
+  })
+});
+-------
+
+Step 3: 
+------
+npm i mongodb
+
+Step 4:
+-------
+node mongo-test.js
+
+

@@ -1,0 +1,144 @@
+Sequelize & MySQL
+ORM
+
+Step 01: download and under customerAppNode
+cd customerAppNode
+
+Step 02: add modules
+yarn add mysql2
+yarn add sequelize
+
+//later on
+npm install -g sequelize-cli 
+
+Step 03: Sequelize Reference:
+https://sequelize.org/v3/
+https://sequelize.org/master/manual/getting-started.html
+
+Step 04: Add Model
+create a folder 
+customerAppNode/models
+
+create a file models/person.js
+----
+const { Sequelize, DataTypes } = require('sequelize');
+//const sequelize = new Sequelize('sqlite::memory:');
+const sequelize = new Sequelize(
+  'nodejs',
+  'root', 
+  'smartant', {
+  host: 'localhost',
+  dialect: 'mysql'
+});
+const Person = sequelize.define('Person', {
+  // Model attributes are defined here
+  id: {
+    type: DataTypes.NUMBER,
+    autoIncrement: true,
+    primaryKey: true,
+    allowNull: false
+  },
+  name: {
+    type: DataTypes.STRING
+  },
+  email: {
+    type: DataTypes.STRING
+  },
+  address: {
+    type: DataTypes.STRING
+  },
+  phone: {
+    type: DataTypes.STRING
+  }
+}, {
+  tableName: 'people'
+});
+
+module.exports = Person;
+--------
+
+Step 05: Create table in database > nodejs
+
+-----
+CREATE TABLE IF NOT EXISTS `people` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(200) NOT NULL,
+  `address` text NOT NULL,
+  `email` varchar(200) NOT NULL,
+  `phone` varchar(20) NOT NULL,
+  `createdAt` datetime,
+  `updatedAt` datetime,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
+----
+
+Step 06: create routes similar to api-customer.js
+say file api-person.js
+----
+var express = require('express');
+var router = express.Router();
+
+const Person = require('../models/Person');
+// end point is  /api/customer
+// method get ==>  get records
+//https://sequelize.org/master/manual/model-querying-basics.html
+router.get('/', async(req, res, next) => {
+  await Person.findAll().then((result)=>{
+    res.send(result);
+  })
+});
+
+router.get('/:id', async (req, res, next) => {
+    await Person.findOne({
+      where:{id:req.params.id}
+    }).then((result)=>{
+    res.send(result);
+  })
+ // res.send(model.getCustomerById(req.params.id));
+});
+
+// method post ==>  add record
+router.post('/', async (req, res, next) => {
+  const person = await Person.create(req.body);
+  res.send({result:'success', msg:"customer added successfully"});
+  });
+
+// method delete ==>  delete record
+router.delete('/', async (req, res, next) => {
+   console.log("req.body:"+ JSON.stringify(req.body));
+  const person = await Person.destroy(
+    { where: { id: req.body.id } }
+  ).then(result =>
+    res.send({result:'success', msg:"customer deleted successfully"}),
+  err =>
+    res.send({result:'fail', msg:"customer updatation failed"})
+  )
+  });
+
+// method put ==>  update record
+router.put('/', async (req, res, next) => {
+  const person = await Person.update(req.body,
+    { where: { id: req.body.id } }
+  ).then(result =>
+    res.send({result:'success', msg:"customer updated successfully"}),
+  err =>
+    res.send({result:'fail', msg:"customer updatation failed"})
+  )
+  });
+  
+module.exports = router;
+-------
+
+
+Step 07: Add api person route reference in app.js
+----
+/api/person
+in app.js
+-----
+.
+.
+var apiPerson = require('./routes/api-person');
+.
+..
+app.use('/api/person', apiPerson);
+

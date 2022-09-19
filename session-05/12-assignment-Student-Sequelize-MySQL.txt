@@ -1,0 +1,27 @@
+Understand Customer CRUD
+10-customer-node-app-session-cookie.zip
+1. create a route 
+    /student
+2. create menu option (update menu) | add Students
+3. Student will have following fields      
+{id,name, class {first,junior, second with drop down}, city,school and dob (date of birth) }
+a) id 
+b) name 
+c) class  example: first,junior, second with drop down
+d) city 
+e) school (school name)
+f) dob (date of birth)  12-05-1995 
+{id:1,name:'Vivek', class:'junior', dob:'12-05-1995',school:'Global', city:"Singapore"},
+    
+ ----------
+ List screen 
+ =========
+
+4. On list it should should AGE (rather dob)
+5. implement model/stident.js (MySQL + sequelize)
+6. implement api/student (CRUD)
+7. implement GUI
+/student
+/student/add
+/student/edit/id 
+

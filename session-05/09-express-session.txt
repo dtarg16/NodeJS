@@ -1,0 +1,104 @@
+Session Security with NodeJS
+----------
+1. 
+$> npm install express-session
+
+2. In app.js
+---
+.
+.
+var session = require('express-session')
+
+.
+.
+.
+//after
+//var app = express();
+.
+.
+.
+
+var sess = {
+  secret: 'keyboard cat',
+  cookie: {},
+  proxy: true,
+  resave: true,
+  saveUninitialized: true
+}
+app.use(session(sess));
+-----
+
+3. routes/users.js
+
+add line  (once login successfull add req.session.user )
+req.session.user = req.body.username;
+see example below 
+-----
+router.post('/authenticate', function(req, res, next) {
+	console.log(req.body);
+	if(req.body.username == req.body.password && req.body.username != undefined){
+		req.session.user = req.body.username;
+		res.send({result:"success", msg:"user successful login."});
+	}else{
+		res.send({result:"fail", msg:"Incorrect username or password."});
+	}
+});
+
+
+4. index.js (routes)
+update /login route
+REMOVE req.session.user  ON logout
+------
+router.get('/login', function(req, res, next) {
+  delete(req.session.user);
+  res.render('login', { title: 'Login' });
+});
+
+-----
+
+5. Split index.js into two route files
+a) index.js
+b) secure-pages.js
+
+index.js
+Keep ONLY below two routes
+-------------
+/
+login 
+
+secure-pages.js
+Move secure pages here
+------
+/customer/edit/:id
+/customer
+/customer/add
+/dashboard
+/about
+/customer/:search
+--------
+
+
+------
+6. In app.js
+// remove index router
+.
+.
+.
+var secureRouter = require('./routes/secured-pages');
+.
+.
+
+app.use('/', indexRouter);
+app.use('/users', usersRouter);
+
+// checkpoint
+app.use(function(req,res,next){
+  if(req.session.user && req.session.user.length > 2 ){
+    next();
+  }else{
+    res.redirect('/login')
+  }
+})
+
+app.use('/', secureRouter);
+app.use('/api/customer', customerRouter); 

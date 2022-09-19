@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <script>
+        const updateCustomer= async ()=>{
+            let id = document.getElementById('id').value;
+            let name = document.getElementById('name').value;
+            let email = document.getElementById('email').value;
+            let phone = document.getElementById('phone').value;
+            let address = document.getElementById('address').value;
+            const data = {id,name,email,phone,address};
+            const response = await fetch('/api/customer', {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
+                })
+                .then((response) => response.json())
+                .then((data) => {
+                    //console.log('Success:', data);
+                    return data;
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                });
+            
+            if(response.result == "ok"){
+                location = "/customer"
+            }
+        }
+    </script>
+    <h1><%= title %></h1>
+        <input id="id" value='<%= record._id %>'' readonly/> <br/><br/>
+        <input id="name" placeholder="Name" value='<%= record.name %>'' /> <br/><br/>
+        <input id="email" placeholder="Email" value='<%= record.email %>'' /> <br/><br/>
+        <input id="phone" placeholder="Phone" value='<%= record.phone %>'' /> <br/><br/>
+        <input id="address" placeholder="Address" value='<%= record.address %>'' /> <br/><br/>
+        <input type="button" onclick="updateCustomer()" value="Update"/>
+  </body>
+</html>

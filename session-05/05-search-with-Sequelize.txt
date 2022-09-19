@@ -1,0 +1,21 @@
+
+// reference: https://sequelize.org/api/v6/class/src/model.js~model#static-method-findAll
+// In apiPerson.js
+
+const { Sequelize } = require('sequelize');
+.
+.
+.
+ 
+
+  router.get('/search/:field/:searchText', async (req, res, next) => {
+    const Op = Sequelize.Op;
+    let data = await Person.findAll({
+      where: {
+        [req.params.field]: {
+          [Op.like]: '%'+req.params.searchText+'%'
+        }
+      }
+    });
+    res.send(data);
+  });
