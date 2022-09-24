@@ -1,0 +1,53 @@
+//appLogic.js
+
+var app = {};
+app.name = function() {
+    return "Hello, testing!";
+  }
+
+app.sum = function(a,b) {
+    return a+b;
+  }
+
+app.mul = function(a,b) {
+    return a*b;
+  }
+
+app.mulError = function(a,b) {
+  try{
+    let result = a*b*c;
+    return result;
+  } catch(e){
+  } 
+}  
+module.exports = app;
+
+//appLogic.spec.js
+var app = require("../appLogic");
+describe("AppLogic test", function() {
+  // string match
+  it("test of AppLogic name", function() {
+    expect(app.name()).toEqual('Hello, testing!');
+  });
+
+  // must be any string 
+  it("test of AppLogic name", function() {
+    expect(app.name()).toString();
+  });
+
+   // must be sum check 
+  it("test of sum", function() {
+    expect(app.sum(2,3)).toEqual(5);
+  });
+   // must be multi check 
+  it("test of mul", function() {
+    expect(app.mul(2,3)).toEqual(6);
+  });
+
+  // must be error throw 
+  it("test of mulError", function() {
+    expect( function(){ parser.parse(raw); } ).toThrow();
+  });
+});
+
+

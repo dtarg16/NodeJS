@@ -1,0 +1,15 @@
+https://en.wikipedia.org/wiki/TypeScript
+install TypeScript
+ npm install -g typescript
+ npm install -g ts-node
+
+Run: 
+$>ts-node main.ts
+// main.ts
+------
+let sample:string = "hello to Type Script";
+console.log(sample);
+------
+
+
+

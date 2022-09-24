@@ -1,0 +1,9 @@
+
+1) JavaScript (what is supported by Browser)
+2) EcmaScript (superSet of JS) (what will be part of Future JavaScript)
+3) TypeScript (superSet of EcmaScript)  
+    const sample:string
+
+4) babel   JS + JSX (React)
+var sample = <h2>hello</h2>; // JSX
+

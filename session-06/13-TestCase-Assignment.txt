@@ -1,0 +1,13 @@
+Create test case
+for URL use mocha
+------
+https://nodeapi.pyther.com/customer
+-------
+1) check if GET request to https://nodeapi.pyther.com/customer returns Array 
+2) check if GET request to https://nodeapi.pyther.com/customer status is 200
+3) check if GET request to https://nodeapi.pyther.com/customer return Array with length > 0 
+4) check if GET request to https://nodeapi.pyther.com/test return status 404
+
+
+
+

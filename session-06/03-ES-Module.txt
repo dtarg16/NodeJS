@@ -1,0 +1,24 @@
+
+commonJS 
+    module.exports ={}
+
+ES6 
+    import export
+
+
+mkdir sample-node-app
+cd sample-node-app 
+$> npm init --y
+// package.json
+  "type": "module",
+
+// main.js destructure
+var {sum,mul} = require('./mathLib.js'); //fs is module
+console.log("sum of 5 + 6 "+sum(5,6))
+console.log("mul of 5 * 6 "+mul(5,6))
+
+// mathLib.js
+export const sum = function(a,b){return a+b;}
+export const mul = function(a,b){return a*b;}
+
+// https://nodejs.org/api/util.html#utiltypesisanyarraybuffervalue

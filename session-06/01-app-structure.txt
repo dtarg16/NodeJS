@@ -1,0 +1,16 @@
+
+=> routes (receive request) /api/person 
+=> controller  // business layer 
+==> service (general/ reusable)
+==> view (html)
+==> app.js 
+==> .env (environment variables)
+==> bin/www 
+==> public 
+
+Standard
+===================
+/customer  (view)
+/api/customer (json)
+/api/student
+/login/user 

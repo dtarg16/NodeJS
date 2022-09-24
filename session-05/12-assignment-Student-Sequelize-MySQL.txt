@@ -25,3 +25,14 @@ f) dob (date of birth)  12-05-1995
 /student/add
 /student/edit/id 
 
+
+CREATE TABLE IF NOT EXISTS `students` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(200) NOT NULL,
+  `class` ENUM('first', 'junior', 'second') NOT NULL,
+  `city` varchar(200) NOT NULL,
+  `school` varchar(200) NOT NULL,
+  `dob` date,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
+

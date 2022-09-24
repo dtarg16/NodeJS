@@ -1,0 +1,54 @@
+Step 1 : Starting the TypeScript Project
+
+$> mkdir typescript-project
+$> cd typescript-project
+$> npm i typescript --save-dev
+
+It is important to include the --save-dev flag because it saves TypeScript as a development dependency. This means that TypeScript is absolutely required for the development of your project.
+
+With TypeScript installed, you can initialize your TypeScript project by using the following command:
+
+$> npx tsc --init
+npm also includes a tool called npx, which will run executable packages. npx allows us to run packages without having to install them globally. You can learn more about how npx works and when to use it here.
+
+The tsc command is used here because it is the built-in TypeScript compiler. When you write code in TypeScript, running tsc will transform or compile your code into JavaScript.
+
+Using the --init flag in the above command will initialize your project by creating a tsconfig.json file in your typescript-project project directory. This tsconfig.json file will allow you to configure further and customize how TypeScript and the tsc compiler interact. You can remove, add, and change configurations in this file to best meet your needs.
+
+Open tsconfig.json in your code editor of choice, and you will see the following default configurations:
+
+typescript-project/tsconfig.json
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "commonjs",
+    "strict": true
+  }
+}
+Many of the default configurations will be commented out. The above configurations sets the version of JavaScript your TypeScript will be compiled into and the expected module system for your compiled program. Setting "strict" to true ensures that a wide range of type-checking rules will be enabled. This means your TypeScript program will have fewer errors.
+
+You can customize your TypeScript configuration. In the tsconfig.json file, add the following key-value pairs:
+
+typescript-project/tsconfig.json
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "commonjs",
+    "strict": true,
+    "outDir": "dist",
+    "sourceMap": true
+  }
+}
+
+index.ts
+-------
+const world = 'world';
+
+export function hello(word: string = world): string {
+  return `Hello ${world}! `;
+}
+------
+
+$> tsc
+check output folder dist
+
