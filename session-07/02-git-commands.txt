@@ -1,0 +1,22 @@
+On project
+==> A, B, C (code base)
+
+sub-version
+git () master copy 
+
+A, B,C 
+git commit 
+git push 
+
+----
+git clone
+
+-----
+add file / folder
+-----
+git add *
+git commit ./
+git log
+git push
+git pull
+------

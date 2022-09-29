@@ -1,0 +1,13 @@
+JSNAD Exam
+System 
+----
+remote linux machine 
+Person monitor / proctor you 
+PSI Browser (KeeP Active)
+linux machine 
+Access to Node DOCS
+-----
+30-40 practicle question in 120 mins
+https://nodejs.org/docs/latest-v17.x/api/
+
+

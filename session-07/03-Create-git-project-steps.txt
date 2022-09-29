@@ -1,0 +1,20 @@
+Install git on you machine from 
+https://git-scm.com/download/win
+---
+1) create a account gitlab.com
+2) create a project js-training
+3) clone on your machine
+git clone <project URL from gitlab.com>
+
+cd <project>
+create a file say test.js 
+-----
+console.log('hello node');
+-----
+
+> git add test.js
+> git commit ./test.js -m 'This is my comment'
+> git push
+
+---------
+Check again your project @ gitlab.com

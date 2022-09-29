@@ -1,0 +1,38 @@
+Directus Installation :
+
+Pre Requirements : 
+ > Node LTS or newer version 
+ > Any running database ready to connect. [mysql , mongodb , sqlite etc..]
+
+
+Step 1 : Run the following command in your workspace directory :
+$ npm init directus-project example-project
+
+Step 2 : Choose database from the list. Use up/down arrow keys to select the SQL type.
+$ ? Choose your database client 
+
+Step 3 : After that a Database name you have to enter you want to work with and also it should be running in another cmd
+? Database Host: 127.0.0.1
+? Port: 3306
+? Database Name: directus
+? Database User: root
+? Database Password: ********
+
+Step 4 : Next you'll set your username/email and password.
+$ Create your first admin user:
+? Email: admin@example.com
+? Password: ********
+ 
+Step 5 :
+Your project has been created at <file-path>/example-project.
+The configuration can be found in <file-path>/example-project/.env
+
+Step 6 : Once the installation is complete, you can start Directus by navigating to your project folder (in this case example-project) and running:
+$ npx directus start
+
+Step 7 : After this server will be started 
+$  Server started at http://localhost:8055
+
+
+Login to App :
+- Login using the admin credentials you configured during the installation in Step 1.

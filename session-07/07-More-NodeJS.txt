@@ -1,0 +1,49 @@
+NodeJS
+-----------
+1) WEB Services and Development
+MicroServices Architecture 
+	https://nodeapi.pyther.com/customer
+	https://nodeapi2.pyther.com/person
+	https://nodeapi3.pyther.com/person
+
+
+Customer 
+Account
+Auth
+Bank
+
+Server LESS 
+-----------------
+nodeapi3
+-----
+AWS Lamda (NodeJS and Pyther)
+https://firebase.google.com/docs/functions
+FireBase is from Google , NoSQL DB FireStore
+-----
+------------------
+
+
+NodeJS CMS => Content Management System 
+1) https://directus.io/
+2) https://strapi.io/
+
+==============================
+2) System / file handling
+Expand All
+
+Buffer and Streams11%
+Control flow 12 %
+Child Processes8%
+Diagnostics6%
+Error Handling8%
+Node.js CLI4%
+Events11%
+File System8%
+JavaScript Prerequisites7%
+Module system 7%
+Process/Operating System6%
+Package.json6%
+Unit Testing6%
+
+
+
