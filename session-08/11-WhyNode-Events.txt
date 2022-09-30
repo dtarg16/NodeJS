@@ -1,0 +1,8 @@
+1950 assemble language
+1970 C language
+1980 C++ language | OOPS  
+why OOPS ? because real world is OO 
+1995 Java => OOPs + PI 
+2010 Scripting ==> Python + JS 
+2015| Event O + script + OOP | 
+Why Event Oriented ?  because World is EO + OO

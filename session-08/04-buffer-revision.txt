@@ -1,0 +1,15 @@
+Buffer.alloc(10);
+Buffer.allocUnsafe(10);
+Buffer.from('Hi from NodeJS');
+Buffer.byteLength(str);
+Buffer.isEncoding(encoding1)
+Buffer.compare(buffer3, buffer4)
+buffer1.compare(buffer2)
+buffer1.equals(buffer2)
+buffer.lastIndexOf('N')
+buffer.toJSON();
+
+// int to buffer value
+let buf = Buffer.allocUnsafe(2);
+buf.writeUInt16BE(1234);
+

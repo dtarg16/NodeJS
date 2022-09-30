@@ -1,0 +1,63 @@
+
+
+Library / multer
+-----
+reference LINK https://www.npmjs.com/package/multer
+
+1) Step
+$> mkdir fileManager
+cd fileManager
+npm install
+npm install --save multer
+
+---------
+2) Step In app.js
+
+// add import   
+const multer  = require('multer')
+const upload = multer({ dest: 'uploads/' })
+
+
+3) Step In app.js
+//add routes 
+-----
+app.post('/profile', upload.single('avatar'), function (req, res, next) {
+  // req.file is the `avatar` file
+  // req.body will hold the text fields, if there were any
+})
+
+
+app.post('/document', upload.single('uploaded_file'), function (req, res, next) {
+  console.log(req.file, req.body)
+  res.send(` file uploaded  ${req.file.originalname}  of size ${req.file.size} bytes`);
+  // req.file is the `avatar` file
+  // req.body will hold the text fields, if there were any
+
+})
+
+app.post('/photos/upload', upload.array('photos', 12), function (req, res, next) {
+  // req.files is array of `photos` files
+  // req.body will contain the text fields, if there were any
+})
+
+const cpUpload = upload.fields([{ name: 'avatar', maxCount: 1 }, { name: 'gallery', maxCount: 8 }])
+app.post('/cool-profile', cpUpload, function (req, res, next) {
+  // req.files is an object (String -> Array) where fieldname is the key, and the value is array of files
+  //
+  // e.g.
+  //  req.files['avatar'][0] -> File
+  //  req.files['gallery'] -> Array
+  //
+  // req.body will contain the text fields, if there were any
+})
+-----------
+
+
+4) Step In index.ejs
+------
+    <h3> Multer File upload example </h3>
+    <form action="/document" method="post" enctype="multipart/form-data">
+      <input type="file" name="uploaded_file" />
+      <button>submit </button>
+    </form>
+------    

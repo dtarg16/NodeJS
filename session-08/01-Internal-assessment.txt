@@ -1,0 +1,6 @@
+Internal Assessment
+--------
+Exam: JavaScript and Node 40 marks
+Project: 50 marks  
+Class Interaction: 10 marks 
+--------
