@@ -1,0 +1,25 @@
+// only help is https://nodejs.org/dist/latest-v16.x/docs/api/
+Requirement: export sum and mul with requireJS
+
+// 1. create project mathLib
+// 2. use npm init to generate package.json
+// 3. create file module math.js
+
+math.js
+---
+const sum = // assignment
+const mul = // assignment
+const divide  = // assignment
+const subtract = // assignment
+
+---
+
+main.js (don't change this file)
+-------
+var {sum,mul,divide,subtract} = require('./math.js')
+
+console.log('sum of 2,2', sum(2,2));
+console.log('mul of 2,2', mul(2,2));
+console.log('divide of 2,2', divide(2,2));
+console.log('subtract of 2,2', subtract(2,2));
+

@@ -1,0 +1,12 @@
+import {promises as fs} from 'fs';
+
+function readFiles(files) {
+  return Promise.all(
+    files.map(path => fs.readFile(path))
+  );
+}
+
+readFiles(['file1', 'file2', 'file3'])
+  .then(fileContents => {
+    console.log('All the files are read', fileContents);
+  });

@@ -1,0 +1,9 @@
+// only help is https://nodejs.org/dist/latest-v16.x/docs/api/
+
+npm --help
+
+node --help
+node inspect 
+node -c  // check
+node invoke debugger 
+

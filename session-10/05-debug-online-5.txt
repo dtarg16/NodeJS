@@ -1,0 +1,17 @@
+
+//start 
+NODE_INSPECT_RESUME_ON_START=1 node inspect  inspect-example.js
+
+console.log("Hello world ... 0");
+let s=90;
+console.log("Hello world ...1");
+s=91;
+debugger;
+
+s=92;
+console.log("Hello world ...2");
+s=93;
+console.log("Hello world ...3");
+
+
+

@@ -1,0 +1,19 @@
+//
+// node inspect hello.js
+
+// next
+// cont continue till debugger
+// .exit
+// repl 
+// ctrl + c out of repl
+console.log("Hello world ... 0");
+s=90;
+console.log("Hello world ...1");
+s=91;
+debugger;
+
+s=92;
+console.log("Hello world ...2");
+s=93;
+console.log("Hello world ...3");
+

@@ -1,0 +1,10 @@
+NodeJS / Express (backend)
+View Engine
+performance 
+EJS is easiest 
+
+Pug
+EJS
+Handlebars
+https://blog.logrocket.com/top-express-js-template-engines-for-dynamic-html-pages/
+

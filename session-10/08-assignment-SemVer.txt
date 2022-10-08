@@ -1,0 +1,14 @@
+assignment
+----------
+update package.json 
+add dependencies
+
+axios verison should be between 2.0 to 0.26 
+express version should be 4 and above
+async version should be 3 and above 
+
+make sure it works with npm install
+
+Change 
+async major version to 4 and above
+and npm install should Fail

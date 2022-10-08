@@ -1,0 +1,43 @@
+// only help is https://nodejs.org/dist/latest-v16.x/docs/api/
+// file 
+
+// change in answer.js answer() funciton
+
+fileIn.txt
+-----------
+hello 
+
+Vivek
+
+How are you? 
+
+Ok
+----------
+
+fileOut.txt (expected result)
+-----------
+hello 
+Vivek
+How are you? 
+Ok
+----------
+
+function answer(fileIn,fileOut){ //fileIn and fileOut is string
+    // read content from fileIn , remove blanklines
+    // and append to fileOut
+    // above is sample for fileIn,fileOut
+} 
+
+
+
+
+
+practice-assignments-janad/11-process-os/01-check-OS-type.txt
+
+==== answer.js ====
+function answer(){
+ return null;
+} 
+
+answer();
+===

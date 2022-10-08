@@ -1,0 +1,11 @@
+// only help is https://nodejs.org/dist/latest-v16.x/docs/api/
+// file 
+
+// change in answer.js answer() funciton
+
+function answer(fileLoc){ //fileLoc is string
+    //check if fileLoc | if  NOT exist return - 1
+    // if exist and if it is folder return 1 
+    // if exist and if it is file return 2
+} 
+

@@ -1,0 +1,8 @@
+// file answer.js
+// only help is https://nodejs.org/dist/latest-v16.x/docs/api/
+
+// change in answer.js  
+program exit with 1 if OS is linux
+program exit with 2 if OS is windows
+program exit with 3 if OS is MacOS
+else program exit with 4

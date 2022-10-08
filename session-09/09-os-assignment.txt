@@ -1,0 +1,10 @@
+// only help is https://nodejs.org/dist/latest-v16.x/docs/api/
+// file 
+
+// change in answer.js answer() funciton
+
+function answer(){ //folderLoc is string
+    // list all files and folder of location User home directory
+    // also list all folder inside home directory including all sub folders
+} 
+

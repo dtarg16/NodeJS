@@ -1,0 +1,34 @@
+// only help is https://nodejs.org/dist/latest-v16.x/docs/api/
+SemVer
+https://github.com/npm/node-semver#versions
+
+versioning modules
+https://docs.npmjs.com/cli/v8/configuring-npm/package-json
+node_module version
+
+{
+  "dependencies": {
+    "foo": "1.0.0 - 2.9999.9999",
+    "bar": ">=1.0.2 <2.1.2",
+    "baz": ">1.0.2 <=2.3.4",
+    "boo": "2.0.1",
+    "qux": "<1.0.0 || >=2.3.1 <2.4.5 || >=2.5.2 <3.0.0",
+    "asd": "http://asdf.com/asdf.tar.gz",
+    "til": "~1.2",
+    "elf": "~1.2.3",
+    "two": "2.x",
+    "thr": "3.3.x",
+    "lat": "latest",
+    "dyl": "file:../dyl"
+  }
+}
+
+assignment
+----------
+update package.json 
+add dependencies
+
+axios verison should be between 2.0 to 0.26 
+express version should be 4 and above
+
+make sure it works with npm install
